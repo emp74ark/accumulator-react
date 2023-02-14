@@ -1,9 +1,19 @@
-import {FC} from 'react';
+import { FC } from 'react';
 import './App.css';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { RouterProvider } from 'react-router-dom';
+import { publicRoutes } from './routes/public.routes';
 
 const App: FC = () => {
   return (
-    <h1>Hello world</h1>
+    <>
+      <HeaderComponent />
+      <main>
+        <RouterProvider router={publicRoutes}></RouterProvider>
+      </main>
+      <FooterComponent />
+    </>
   );
 }
 
