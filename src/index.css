@@ -83,6 +83,35 @@ main {
   max-width: 40ch;
 }
 
+.record {
+  display: flex;
+  border: 1px dotted var(--font-color-primary);
+  padding: 5px 10px;
+  margin: 10px;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.record__date {
+  width: 10ch;
+  flex: none;
+}
+
+.record__tags {
+  width: 100px;
+  flex: none;
+}
+
+.record__actions {
+  width: 50px;
+  flex: none;
+  cursor: pointer;
+}
+
+.record__content {
+  width: calc(100% - 150px - 10ch);
+}
+
 footer {
   height: 20px;
   background: var(--background-color-accent);

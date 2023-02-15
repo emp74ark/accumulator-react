@@ -21,12 +21,16 @@ const App: FC = () => {
   const addRecord = (record: EventRecord) => {
     setData([...data, record])
   }
+
+  const removeRecord = (record: EventRecord) => {
+    setData(data.filter(el => el.id !== record.id))
+  }
   return (
     <>
       <BrowserRouter>
         <SettingsContext.Provider value={{theme: settings.theme, themeToggle}}>
           <HeaderComponent />
-          <DataContext.Provider value={{data, add: addRecord}}>
+          <DataContext.Provider value={{data, add: addRecord, remove: removeRecord}}>
             <main style={ settings.theme === 'light' ? {} : {color: '#f0f0f0', background: '#4d525a'} }>
               <Routes>
                 { appRoutes.map(({path, element}) => (
