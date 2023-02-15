@@ -1,17 +1,13 @@
 import React, { FC, useContext } from 'react';
 import { DataContext } from '../../state/data.context';
+import { parseString } from '../../tools/parseString';
 
 export const NewRecordComponent: FC = () => {
   const {add} = useContext(DataContext)
   const onSave = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const {value} = e.currentTarget['new-record'];
-    add({
-      id: Date.now(),
-      date: (new Date()).toISOString(),
-      content: value,
-      tag: [],
-    });
+    add(parseString(value));
     e.currentTarget.reset()
   };
 

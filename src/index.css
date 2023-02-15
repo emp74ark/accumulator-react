@@ -88,8 +88,13 @@ main {
   border: 1px dotted var(--font-color-primary);
   padding: 5px 10px;
   margin: 10px;
-  gap: 10px;
+  gap: 15px;
   justify-content: space-between;
+  align-items: center;
+}
+
+.record:first-child {
+  font-weight: bold;
 }
 
 .record__date {
@@ -97,9 +102,27 @@ main {
   flex: none;
 }
 
+.record__content {
+  width: 100%;
+}
+
+.record__amount {
+  width: 10ch;
+}
+
 .record__tags {
-  width: 100px;
+  width: 200px;
   flex: none;
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+.record__tag {
+  background: var(--background-color-secondary);
+  padding: 3px 10px;
+  border-radius: 10px;
+  color: var(--font-color-primary);
 }
 
 .record__actions {
@@ -108,9 +131,6 @@ main {
   cursor: pointer;
 }
 
-.record__content {
-  width: calc(100% - 150px - 10ch);
-}
 
 footer {
   height: 20px;

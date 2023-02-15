@@ -8,9 +8,10 @@ export const RecordComponent: FC<EventRecord> = (record) => {
       <div className="record">
         <span className="record__date">{record.date.slice(0,10)}</span>
         <span className="record__content">{record.content}</span>
+        <span className="record__amount">{record.amount}</span>
         <div className="record__tags">
-          {record.tag.map(tag => (
-              <span>{ tag }</span>
+          {record.tag.map((tag, index) => (
+              <span key={index} className="record__tag">{ tag }</span>
           ))}
         </div>
         <div className="record__actions">

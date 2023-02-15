@@ -10,6 +10,13 @@ export const RecordsListComponent: FC<{ limit?: number }> = (props) => {
 
   return (
       <div className="records">
+        <div className="record">
+          <span className="record__date">date</span>
+          <span className="record__content">content</span>
+          <span className="record__amount">amount</span>
+          <span className="record__tags">tags</span>
+          <span className="record__actions">actions</span>
+        </div>
         { limit
             ? records.slice(0, limit).map(record => (
                 <RecordComponent key={ record.id } { ...record } />
