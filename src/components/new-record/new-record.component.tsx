@@ -14,7 +14,7 @@ export const NewRecordComponent: FC = () => {
   return (
       <form onSubmit={ onSave }>
         <label htmlFor="new-record">Add new record</label>
-        <input type="text" id="new-record" />
+        <input type="text" id="new-record" autoFocus={true} />
         <button type="submit">save</button>
       </form>
   );

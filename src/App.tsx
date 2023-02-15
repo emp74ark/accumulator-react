@@ -1,17 +1,17 @@
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import './App.css';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { appRoutes } from './routes/app.routes';
 import { SettingsContext } from './state/settings.context';
-import { records } from './state/mock-data';
 import { EventRecord } from './interfaces';
 import { DataContext } from './state/data.context';
 
 const App: FC = () => {
+  const restoredData = localStorage.actr ? JSON.parse(localStorage.actr) : []
   const [settings, changeSettings] = useState({theme: 'light'})
-  const [data, setData] = useState<EventRecord[]>(records)
+  const [data, setData] = useState<EventRecord[]>(restoredData)
 
   const themeToggle = () => {
     const theme = settings.theme === 'light' ? 'dark' : 'light'
@@ -25,6 +25,11 @@ const App: FC = () => {
   const removeRecord = (record: EventRecord) => {
     setData(data.filter(el => el.id !== record.id))
   }
+
+  useEffect(() => {
+    return () => {localStorage.setItem('actr', JSON.stringify(data))}
+  })
+
   return (
     <>
       <BrowserRouter>

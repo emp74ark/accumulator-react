@@ -16,6 +16,16 @@ body {
   background: var(--background-color-primary);
 }
 
+button {
+  background: var(--background-color-accent);
+  border: none;
+  padding: 5px 10px;
+}
+
+button:hover {
+  box-shadow: 1px 1px 3px #000;
+}
+
 h1,
 h2,
 h3 {
@@ -81,6 +91,9 @@ main {
 .new-record input {
   width: 100%;
   max-width: 40ch;
+  padding: 5px 10px;
+  outline: none;
+  border: none;
 }
 
 .record {
