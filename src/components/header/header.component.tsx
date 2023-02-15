@@ -1,14 +1,18 @@
 import { FC } from 'react';
 import { NavComponent } from '../nav/nav.component';
+import { Link } from 'react-router-dom';
 
 export const HeaderComponent: FC = () => {
   return(
       <header>
-        <a href={'/'}>
+        <Link to={'/'}>
           <h1>actr</h1>
-        </a>
+        </Link>
         <NavComponent />
-        <div className="appearance">Theme</div>
+        <div className="appearance">
+          <span>theme</span>
+          <span>language</span>
+        </div>
       </header>
   )
 }

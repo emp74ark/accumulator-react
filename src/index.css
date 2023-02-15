@@ -3,7 +3,7 @@
   --background-color-secondary: #ebe9cd;
   --background-color-accent: #89abeb;
   --font-color-primary: #000000;
-  --font-color-active: #d64f4f;
+  --font-color-active: #2328d1;
 }
 
 body {
@@ -47,6 +47,7 @@ nav li {
 .appearance {
   display: flex;
   justify-content: flex-end;
+  gap: 10px;
 }
 
 main {
@@ -60,6 +61,9 @@ main {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 80vw;
+}
+
+.new-record form {
   display: flex;
   flex-direction: column;
   align-items: center;
