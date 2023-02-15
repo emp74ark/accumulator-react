@@ -16,6 +16,12 @@ body {
   background: var(--background-color-primary);
 }
 
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+
 header {
   height: 50px;
   background: var(--background-color-accent);
@@ -48,11 +54,12 @@ nav li {
   display: flex;
   justify-content: flex-end;
   gap: 10px;
+  cursor: pointer;
 }
 
 main {
-  height: calc(100vh - 70px);
-  padding: 0 10px;
+  height: calc(100vh - 90px);
+  padding: 10px 20px;
 }
 
 .new-record {

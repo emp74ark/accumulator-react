@@ -1,18 +1,24 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import './App.css';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { GlobalContext, globalState } from './context/global.context';
 import { appRoutes } from './routes/app.routes';
+import { SettingsContext } from './state/settings.context';
 
 const App: FC = () => {
+  const [settings, changeSettings] = useState({theme: 'light'})
+  const themeToggle = () => {
+    const theme = settings.theme === 'light' ? 'dark' : 'light'
+    console.log('new theme', theme)
+    changeSettings({...settings, theme})
+  }
   return (
     <>
       <BrowserRouter>
-        <GlobalContext.Provider value={globalState}>
+        <SettingsContext.Provider value={{theme: settings.theme, themeToggle}}>
           <HeaderComponent />
-          <main>
+          <main style={ settings.theme === 'light' ? {} : {color: '#f0f0f0', background: '#4d525a'} }>
             <Routes>
               { appRoutes.map(({path, element}) => (
                   <Route key={path} path={path} element={element} />
@@ -20,7 +26,7 @@ const App: FC = () => {
             </Routes>
           </main>
           <FooterComponent />
-        </GlobalContext.Provider>
+        </SettingsContext.Provider>
       </BrowserRouter>
     </>
   );
