@@ -1,13 +1,12 @@
 import { FC } from 'react';
+import { RecordsListComponent } from '../../components/records-list/records-list.component';
+import { NewRecordComponent } from '../../components/new-record/new-record.component';
 
 export const HomeComponent: FC = () => {
   return(
-      <>
-        <form className="new-record">
-          <label htmlFor="new-record">Add new record</label>
-          <input type="text" id="new-record"/>
-          <button>send</button>
-        </form>
-      </>
+      <div className="new-record">
+        <NewRecordComponent />
+        <RecordsListComponent limit={3} />
+      </div>
   )
 }
