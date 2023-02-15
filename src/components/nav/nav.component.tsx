@@ -7,7 +7,7 @@ export const NavComponent: FC = () => {
       <nav>
         <ul>
           {navRoutes.slice(1).map(({name, path}) => (
-              <li><NavLink to={path}>{name}</NavLink></li>
+              <li key={path}><NavLink to={path}>{name}</NavLink></li>
           ))}
         </ul>
       </nav>
