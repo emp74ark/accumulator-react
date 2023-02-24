@@ -1,21 +1,21 @@
-import { HomeComponent } from '../pages/home/home.component';
-import { RecordsComponent } from '../pages/records/records.component';
-import { StatisticsComponent } from '../pages/statistics/statistics.component';
+import { Home } from '../pages/Home/Home';
+import { Records } from '../pages/Records/Records';
+import { Statistics } from '../pages/Statistics/Statistics';
 
 export const navRoutes = [
   {
     name: 'Home',
     path: '/',
-    element: <HomeComponent/>,
+    element: <Home/>,
   },
   {
     name: 'Records',
     path: '/records',
-    element: <RecordsComponent/>,
+    element: <Records/>,
   },
   {
     name: 'Statistics',
     path: '/statistics',
-    element: <StatisticsComponent/>,
+    element: <Statistics/>,
   },
 ];

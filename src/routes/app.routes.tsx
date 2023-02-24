@@ -1,10 +1,10 @@
-import { UfoComponent } from '../pages/ufo/ufo.component';
+import { UFO } from '../pages/UFO/UFO';
 import { navRoutes } from './public.routes';
 
 export const appRoutes = [
   ...navRoutes,
   {
     path: '*',
-    element: <UfoComponent/>,
+    element: <UFO/>,
   },
 ];

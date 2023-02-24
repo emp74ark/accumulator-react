@@ -2,7 +2,7 @@ import { FC, useContext } from 'react';
 import { EventRecord } from '../../interfaces';
 import { DataContext } from '../../state/data.context';
 
-export const RecordComponent: FC<EventRecord> = (record) => {
+export const Record: FC<EventRecord> = (record) => {
   const {remove} = useContext(DataContext)
   return(
       <div className="record">

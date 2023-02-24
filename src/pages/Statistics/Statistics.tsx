@@ -2,7 +2,7 @@ import { FC, useContext } from 'react';
 import { DataContext } from '../../state/data.context';
 import { Cell, Pie, PieChart, Tooltip } from 'recharts';
 
-export const StatisticsComponent: FC = () => {
+export const Statistics: FC = () => {
   const {data} = useContext(DataContext)
   const totalAmount = data.reduce((acc, el) => acc + el.amount, 0)
   const tags = new Set(data.map(el => el.tag).flat())
