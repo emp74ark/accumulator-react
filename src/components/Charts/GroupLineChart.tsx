@@ -8,10 +8,11 @@ interface GroupLineChartInterface {
   width: number;
   height: number;
   tags: string[];
+  label: string;
 }
 
 export const GroupLineChart: FC<GroupLineChartInterface> = (props) => {
-  const { data, width, height, tags } = props;
+  const { data, width, height, tags, label } = props;
 
   const dataPerTag: Record<string, EventRecord[]> = {};
 
@@ -47,7 +48,8 @@ export const GroupLineChart: FC<GroupLineChartInterface> = (props) => {
   })
 
   return (
-      <>
+      <div className="chart">
+        <h3>{label}</h3>
         <BarChart width={width} height={height} data={chartData}>
           <XAxis dataKey={'name'}/>
           <YAxis/>
@@ -59,6 +61,6 @@ export const GroupLineChart: FC<GroupLineChartInterface> = (props) => {
             ))
           }
         </BarChart>
-      </>
+      </div>
   );
 };

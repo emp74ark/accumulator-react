@@ -8,14 +8,16 @@ interface TagPieChartInterface {
   width: number;
   height: number;
   tag: string;
+  label: string;
 }
 export const TagPieChart: FC<TagPieChartInterface> = (props) => {
-  const {data, tag, width, height} = props;
+  const {data, tag, width, height, label} = props;
 
   const charData = data.filter(entry => entry.tag.includes(tag))
 
   return (
-      <>
+      <div className={'chart'}>
+        <h3>{label}</h3>
         <PieChart width={width} height={height}>
           <Pie
               data={charData}
@@ -34,6 +36,6 @@ export const TagPieChart: FC<TagPieChartInterface> = (props) => {
           </Pie>
           <Tooltip/>
         </PieChart>
-      </>
+      </div>
   );
 };

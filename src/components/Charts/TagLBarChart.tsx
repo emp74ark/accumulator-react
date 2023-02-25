@@ -8,9 +8,10 @@ interface TagBarChartInterface {
   width: number;
   height: number;
   tag: string;
+  label: string;
 }
 export const TagBarChart: FC<TagBarChartInterface> = (props) => {
-  const {data, tag, width, height} = props;
+  const {data, tag, width, height, label} = props;
 
   const filteredData = data.filter(entry => entry.tag.includes(tag))
 
@@ -35,13 +36,14 @@ export const TagBarChart: FC<TagBarChartInterface> = (props) => {
   })
 
   return (
-      <>
+      <div className={'chart'}>
+        <h3>{label}</h3>
         <BarChart width={width} height={height} data={chartData}>
           <XAxis dataKey={'date'}/>
           <YAxis/>
           <Tooltip/>
           <Bar dataKey={'amount'} type={'monotone'} fill={uniqolor.random().color}/>
         </BarChart>
-      </>
+      </div>
   );
 };

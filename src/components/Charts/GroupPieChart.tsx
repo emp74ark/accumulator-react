@@ -8,9 +8,10 @@ interface GroupPieChartInterface {
   width: number;
   height: number;
   tags: string[];
+  label: string;
 }
 export const GroupPieChart: FC<GroupPieChartInterface> = (props) => {
-  const {data, width, height, tags} = props;
+  const {data, width, height, tags, label} = props;
   const amountPerTag: Record<string, number> = {}
 
   tags.forEach(tag => {
@@ -31,7 +32,8 @@ export const GroupPieChart: FC<GroupPieChartInterface> = (props) => {
   })
 
   return (
-      <>
+      <div className={'chart'}>
+        <h3>{label}</h3>
         <PieChart width={width} height={height}>
           <Pie
               data={chartData}
@@ -50,6 +52,6 @@ export const GroupPieChart: FC<GroupPieChartInterface> = (props) => {
           </Pie>
           <Tooltip />
         </PieChart>
-      </>
+      </div>
   );
 };
