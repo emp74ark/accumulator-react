@@ -68,7 +68,7 @@ nav li {
 }
 
 main {
-  height: calc(100vh - 90px);
+  height: calc(100vh - 70px);
   padding: 10px 20px;
 }
 
@@ -144,6 +144,15 @@ main {
   cursor: pointer;
 }
 
+.charts {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.chart {
+  width: 400px;
+  height: 300px;
+}
 
 footer {
   height: 20px;

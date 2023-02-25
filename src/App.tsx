@@ -1,7 +1,6 @@
 import { FC, useEffect, useState } from 'react';
 import './App.css';
 import { Header } from './components/Header/Header';
-import { Footer } from './components/Footer/Footer';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { appRoutes } from './routes/app.routes';
 import { SettingsContext } from './state/settings.context';
@@ -44,7 +43,7 @@ const App: FC = () => {
               </Routes>
             </main>
           </DataContext.Provider>
-          <Footer />
+          {/*<Footer />*/}
         </SettingsContext.Provider>
       </BrowserRouter>
     </>
