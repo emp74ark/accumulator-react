@@ -1,8 +1,8 @@
 import { FC, useContext } from 'react';
-import { RecordComponent } from '../record/record.component';
+import { Record } from '../Record/Record';
 import { DataContext } from '../../state/data.context';
 
-export const RecordsListComponent: FC<{ limit?: number }> = (props) => {
+export const RecordList: FC<{ limit?: number }> = (props) => {
   const {limit} = props;
   const {data} = useContext(DataContext)
 
@@ -19,10 +19,10 @@ export const RecordsListComponent: FC<{ limit?: number }> = (props) => {
         </div>
         { limit
             ? records.slice(0, limit).map(record => (
-                <RecordComponent key={ record.id } { ...record } />
+                <Record key={ record.id } { ...record } />
             ))
             : records.map(record => (
-                <RecordComponent key={ record.id } { ...record } />
+                <Record key={ record.id } { ...record } />
             ))
         }
       </div>

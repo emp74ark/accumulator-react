@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { NavLink } from 'react-router-dom';
 import { navRoutes } from '../../routes/public.routes';
 
-export const NavComponent: FC = () => {
+export const Nav: FC = () => {
   return(
       <nav>
         <ul>

@@ -2,7 +2,7 @@ import React, { FC, useContext } from 'react';
 import { DataContext } from '../../state/data.context';
 import { parseString } from '../../tools/parseString';
 
-export const NewRecordComponent: FC = () => {
+export const NewRecord: FC = () => {
   const {add} = useContext(DataContext)
   const onSave = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

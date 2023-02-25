@@ -1,17 +1,17 @@
 import { FC, useContext } from 'react';
-import { RecordsListComponent } from '../../components/records-list/records-list.component';
-import { NewRecordComponent } from '../../components/new-record/new-record.component';
+import { RecordList } from '../../components/RecordList/RecordList';
+import { NewRecord } from '../../components/NewRecord/NewRecord';
 import { DataContext } from '../../state/data.context';
 
-export const HomeComponent: FC = () => {
+export const Home: FC = () => {
   const {data} = useContext(DataContext)
   return(
       <div className="new-record">
-        <NewRecordComponent />
+        <NewRecord />
         { !!data.length &&
             <>
               <h3>Latest records</h3>
-              <RecordsListComponent limit={3} />
+              <RecordList limit={3} />
             </>
         }
       </div>

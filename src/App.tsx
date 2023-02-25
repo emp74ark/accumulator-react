@@ -1,7 +1,7 @@
 import { FC, useEffect, useState } from 'react';
 import './App.css';
-import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
+import { Header } from './components/Header/Header';
+import { Footer } from './components/Footer/Footer';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { appRoutes } from './routes/app.routes';
 import { SettingsContext } from './state/settings.context';
@@ -34,7 +34,7 @@ const App: FC = () => {
     <>
       <BrowserRouter>
         <SettingsContext.Provider value={{theme: settings.theme, themeToggle}}>
-          <HeaderComponent />
+          <Header />
           <DataContext.Provider value={{data, add: addRecord, remove: removeRecord}}>
             <main style={ settings.theme === 'light' ? {} : {color: '#f0f0f0', background: '#4d525a'} }>
               <Routes>
@@ -44,7 +44,7 @@ const App: FC = () => {
               </Routes>
             </main>
           </DataContext.Provider>
-          <FooterComponent />
+          <Footer />
         </SettingsContext.Provider>
       </BrowserRouter>
     </>
