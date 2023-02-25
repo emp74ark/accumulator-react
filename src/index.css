@@ -29,7 +29,7 @@ button:hover {
 h1,
 h2,
 h3 {
-  margin: 0;
+  margin: 0 0 10px;
 }
 
 header {
@@ -150,8 +150,12 @@ main {
 }
 
 .chart {
-  width: 400px;
-  height: 300px;
+  width: 320px;
+  height: 220px;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px #ccc;
 }
 
 footer {
@@ -161,4 +165,22 @@ footer {
   justify-content: center;
   align-items: center;
   font-size: 12px;
+}
+
+.tags {
+  width: 30%;
+  border: 1px dotted #ccc;
+  padding: 20px 10px;
+  border-radius: 10px;
+}
+
+.tags__list {
+  width: 300px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.statistics {
+  display: flex;
 }
