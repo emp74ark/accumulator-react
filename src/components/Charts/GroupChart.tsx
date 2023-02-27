@@ -4,13 +4,15 @@ import { GroupPieChart } from './GroupPieChart';
 import { GroupLineChart } from './GroupLineChart';
 
 interface GroupChartInterface {
+  id: number
   label: string;
   data: EventRecord[];
   tags: string[];
+  onRemove: (id: number) => void;
 }
 
 export const GroupChart: FC<GroupChartInterface> = (props) => {
-  const { label, tags, data } = props;
+  const { id, label, tags, data, onRemove } = props;
   const [type, setType] = useState<string>('pie');
   const onChangeType = () => {
     const newType = type === 'pie' ? 'bar' : 'pie';
@@ -21,6 +23,7 @@ export const GroupChart: FC<GroupChartInterface> = (props) => {
         <div className="chart__header">
           <h3>{ label }</h3>
           <button onClick={ onChangeType }>type</button>
+          <button onClick={() => onRemove(id)}>remove</button>
         </div>
         {
             type === 'pie' &&

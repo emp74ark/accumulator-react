@@ -24,7 +24,7 @@ export const Charts: FC<ChartsInterface> = (props) => {
   const addSingle = (label: string, tag: string) => {
     setCharts([
       ...charts,
-      <SingleChart key={ Date.now() } label={ label } data={ data } tag={ tag }/>
+      <SingleChart key={ Date.now() } id={Date.now()} label={ label } data={ data } tag={ tag } onRemove={onRemoveChart}/>
     ]);
     setModal(false);
   };
@@ -32,10 +32,15 @@ export const Charts: FC<ChartsInterface> = (props) => {
   const addGroup = (label: string, tags: string[]) => {
     setCharts([
       ...charts,
-      <GroupChart key={ Date.now() } label={ label } data={ data } tags={ tags }/>
+      <GroupChart key={ Date.now() } id={Date.now()} label={ label } data={ data } tags={ tags } onRemove={onRemoveChart}/>
     ]);
     setModal(false);
   };
+
+  const onRemoveChart = (id: number) => {
+    const newChart = charts.filter(el => el.key === id)
+    setCharts(newChart)
+  }
 
   return (
       <>
