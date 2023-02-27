@@ -1,16 +1,17 @@
-import { FC, useReducer } from 'react';
+import { Dispatch, FC } from 'react';
 import { EventRecord } from '../../interfaces';
 import { TagsList } from './TagsList';
 import { TagsGroup } from './TagsGroup';
-import { dndState, reducer } from './TagsReducer';
+import { DndActionInterface, DndStateInterface } from '../../reducer/TagsReducer';
 
 interface TagsInterface {
   data: EventRecord[];
+  state: DndStateInterface;
+  dispatch: Dispatch<DndActionInterface>;
 }
 
 export const Tags: FC<TagsInterface> = (props) => {
-  const {data} = props
-  const [state, dispatch] = useReducer(reducer, dndState)
+  const {data, state, dispatch} = props
 
   return (
       <div className="tags">

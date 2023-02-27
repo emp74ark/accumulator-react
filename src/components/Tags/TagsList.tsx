@@ -1,6 +1,6 @@
 import { Dispatch, FC } from 'react';
 import { EventRecord } from '../../interfaces';
-import { DndActionInterface } from './TagsReducer';
+import { DndActionInterface } from '../../reducer/TagsReducer';
 
 interface TagsListInterface {
   data: EventRecord[],

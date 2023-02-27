@@ -11,7 +11,7 @@ interface GroupPieChartInterface {
   label: string;
 }
 export const GroupPieChart: FC<GroupPieChartInterface> = (props) => {
-  const {data, width, height, tags, label} = props;
+  const {data, width, height, tags} = props;
   const amountPerTag: Record<string, number> = {}
 
   tags.forEach(tag => {
@@ -32,26 +32,23 @@ export const GroupPieChart: FC<GroupPieChartInterface> = (props) => {
   })
 
   return (
-      <div className={'chart'}>
-        <h3>{label}</h3>
-        <PieChart width={width} height={height}>
-          <Pie
-              data={chartData}
-              dataKey='amount'
-              nameKey='tag'
-              outerRadius={60}
-              cx={'50%'}
-              cy={'50%'}
-          >
-            {
-              data.map((entry, index) => (
-                  <Cell key={`call-${index}`} fill={uniqolor(entry.content).color}/>
-              ))
-            }
-            <LabelList dataKey={'tag'} position={'outside'} stroke={uniqolor.random().color}/>
-          </Pie>
-          <Tooltip />
-        </PieChart>
-      </div>
+      <PieChart width={width} height={height}>
+        <Pie
+            data={chartData}
+            dataKey='amount'
+            nameKey='tag'
+            outerRadius={60}
+            cx={'50%'}
+            cy={'50%'}
+        >
+          {
+            data.map((entry, index) => (
+                <Cell key={`call-${index}`} fill={uniqolor(entry.content).color}/>
+            ))
+          }
+          <LabelList dataKey={'tag'} position={'outside'} stroke={uniqolor.random().color}/>
+        </Pie>
+        <Tooltip />
+      </PieChart>
   );
 };

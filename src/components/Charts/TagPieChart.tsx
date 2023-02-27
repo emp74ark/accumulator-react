@@ -4,38 +4,36 @@ import { EventRecord } from '../../interfaces';
 import uniqolor from 'uniqolor';
 
 interface TagPieChartInterface {
-  data: EventRecord[]
+  data: EventRecord[];
   width: number;
   height: number;
   tag: string;
   label: string;
 }
-export const TagPieChart: FC<TagPieChartInterface> = (props) => {
-  const {data, tag, width, height, label} = props;
 
-  const charData = data.filter(entry => entry.tag.includes(tag))
+export const TagPieChart: FC<TagPieChartInterface> = (props) => {
+  const { data, tag, width, height } = props;
+
+  const charData = data.filter(entry => entry.tag.includes(tag));
 
   return (
-      <div className={'chart'}>
-        <h3>{label}</h3>
-        <PieChart width={width} height={height}>
-          <Pie
-              data={charData}
-              dataKey='amount'
-              nameKey='content'
-              outerRadius={60}
-              cx={'50%'}
-              cy={'50%'}
-          >
+      <PieChart width={ width } height={ height }>
+        <Pie
+            data={ charData }
+            dataKey="amount"
+            nameKey="content"
+            outerRadius={ 60 }
+            cx={ '50%' }
+            cy={ '50%' }
+        >
           {
             data.map((entry, index) => (
-                <Cell key={`call-${index}`} fill={uniqolor(entry.content).color}/>
+                <Cell key={ `call-${ index }` } fill={ uniqolor(entry.content).color }/>
             ))
           }
-          <LabelList dataKey={'content'} position={'outside'} stroke={uniqolor.random().color}/>
-          </Pie>
-          <Tooltip/>
-        </PieChart>
-      </div>
+          <LabelList dataKey={ 'content' } position={ 'outside' } stroke={ uniqolor.random().color }/>
+        </Pie>
+        <Tooltip/>
+      </PieChart>
   );
 };

@@ -1,5 +1,5 @@
 import { ChangeEvent, Dispatch, FC, useState } from 'react';
-import { DndActionInterface, DndStateInterface } from './TagsReducer';
+import { DndActionInterface, DndStateInterface } from '../../reducer/TagsReducer';
 
 interface TagsGroupInterface {
   state: DndStateInterface;
@@ -28,7 +28,7 @@ export const TagsGroup: FC<TagsGroupInterface> = (props) => {
         </label>
         <button disabled={!name} onClick={onAdd}>Add group</button>
         {
-          Object.entries(group).map(([name, tags]) => (
+          Object.entries(group).map(([name]) => (
               <div key={name} className={'tags__group'}>
                 <div className={'tags__group_header'}>
                   {name}
