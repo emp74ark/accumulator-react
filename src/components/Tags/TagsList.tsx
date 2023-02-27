@@ -1,10 +1,13 @@
-import { FC } from 'react';
+import { Dispatch, FC } from 'react';
 import { EventRecord } from '../../interfaces';
+import { DndActionInterface } from './TagsReducer';
+
 interface TagsListInterface {
-  data: EventRecord[]
+  data: EventRecord[],
+  dispatch: Dispatch<DndActionInterface>;
 }
 export const TagsList: FC<TagsListInterface> = (props) => {
-  const { data } = props;
+  const { data, dispatch } = props;
   const tags = new Set(data.map(el => el.tag).flat())
 
   return (
@@ -13,7 +16,16 @@ export const TagsList: FC<TagsListInterface> = (props) => {
         <div className={'tags__list'}>
           {
             Array.from(tags).map(tag => (
-                <span className={'record__tag'}>{tag}</span>
+                <div
+                    key={tag}
+                    id={tag}
+                    className={'record__tag'}
+                    draggable={true}
+                    onDragStart={() => dispatch({type: 'dragStart', payload: tag})}
+                    onDragEnd={() => dispatch({type: 'dragEnd', payload: tag})}
+                >
+                  {tag}
+                </div>
             ))
           }
         </div>

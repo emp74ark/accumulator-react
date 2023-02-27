@@ -68,7 +68,7 @@ nav li {
 }
 
 main {
-  height: calc(100vh - 70px);
+  height: calc(100% - 70px);
   padding: 10px 20px;
 }
 
@@ -91,9 +91,6 @@ main {
 .new-record input {
   width: 100%;
   max-width: 40ch;
-  padding: 5px 10px;
-  outline: none;
-  border: none;
 }
 
 .record {
@@ -127,15 +124,34 @@ main {
   width: 200px;
   flex: none;
   display: flex;
-  gap: 5px;
+  /*gap: 5px;*/
   flex-wrap: wrap;
 }
 
 .record__tag {
   background: var(--background-color-secondary);
   padding: 3px 10px;
+  margin: 5px 3px;
   border-radius: 10px;
   color: var(--font-color-primary);
+}
+
+.record__tag:has(button) {
+  width: max-content;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.record__tag button {
+  width: 15px;
+  height: auto;
+  background: transparent;
+}
+
+.record__tag button:hover {
+  box-shadow: none;
+  font-weight: bold;
 }
 
 .record__actions {
@@ -181,6 +197,36 @@ footer {
   gap: 10px;
 }
 
+.tags__group {}
+
+.tags__group_header {
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.tags__group_content {
+  min-height: 20px;
+  background: rgba(108, 68, 128, 0.4);
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .statistics {
   display: flex;
+}
+label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+input {
+  padding: 5px 10px;
+  outline: none;
+  border: none;
 }
