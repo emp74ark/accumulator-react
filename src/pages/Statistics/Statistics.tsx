@@ -4,7 +4,7 @@ import { TagPieChart } from '../../components/Charts/TagPieChart';
 import { GroupPieChart } from '../../components/Charts/GroupPieChart';
 import { TagBarChart } from '../../components/Charts/TagLBarChart';
 import { GroupLineChart } from '../../components/Charts/GroupLineChart';
-import { TagsList } from '../../components/Tags/TagsList';
+import { Tags } from '../../components/Tags/Tags';
 
 export const Statistics: FC = () => {
   const {data} = useContext(DataContext)
@@ -19,9 +19,7 @@ export const Statistics: FC = () => {
             <TagBarChart label={'Tag (#health) bar'} data={data} width={300} height={200} tag={'health'}/>
             <GroupLineChart label={'Group (#health #car) bar'} data={data} width={300} height={200} tags={['health', 'car']}/>
           </div>
-          <div className="tags">
-            <TagsList data={data}/>
-          </div>
+          <Tags data={data}/>
         </div>
       </>
   )
