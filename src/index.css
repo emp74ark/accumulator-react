@@ -188,6 +188,9 @@ footer {
   border: 1px dotted #ccc;
   padding: 20px 10px;
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .tags__list {
